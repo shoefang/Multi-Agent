@@ -1,0 +1,123 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "discover_skills",
+            "description": "发现当前可用的 Skills。当用户请求可能需要特定能力时调用此工具",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skills_dir": {
+                        "type": "string",
+                        "description": "Skills 目录路径"
+                    }
+                },
+                "required": ["skills_dir"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "load_skill",
+            "description": "加载指定 Skill 的完整指令。找到合适的 Skill 后调用此工具获取详细指令",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skill_path": {
+                        "type": "string",
+                        "description": "SKILL.md 文件的路径"
+                    }
+                },
+                "required": ["skill_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_file",
+            "description": "读取任意文件内容",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string", "description": "文件路径"}
+                },
+                "required": ["file_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "write_file",
+            "description": "创建或写入文件",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string", "description": "文件路径"},
+                    "content": {"type": "string", "description": "文件内容"}
+                },
+                "required": ["file_path", "content"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "list_directory",
+            "description": "列出目录内容",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "dir_path": {"type": "string", "description": "目录路径"}
+                },
+                "required": ["dir_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "complete_task",
+            "description": "标记任务完成并退出。必须在所有工作完成后调用此工具来正式结束任务。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "summary": {
+                        "type": "string",
+                        "description": "任务完成摘要，描述完成了什么、生成了哪些文件"
+                    },
+                    "files_created": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "创建的文件路径列表"
+                    }
+                },
+                "required": ["summary"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "Image_understanding",
+            "description": "使用VLM模型进行图像理解，分析图像内容并生成描述。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "image_urls": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "图片URL列表，支持多个图片"
+                    },
+                    "brief": {
+                        "type": "string",
+                        "description": "用户上传的简要说明信息（可选）"
+                    }
+                },
+                "required": ["image_urls", "brief"]
+            }
+        }
+    }
+]

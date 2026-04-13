@@ -1,0 +1,84 @@
+{
+    "description": "敏感词黑名单配置文件 - 用于过滤outline中的敏感元素",
+    "version": "1.0.0",
+    "last_updated": "2026-02-10",
+    "categories": {
+      "political": {
+        "name": "政治敏感元素",
+        "keywords": [
+          "国旗",
+          "国徽",
+          "党旗",
+          "党徽",
+          "军旗",
+          "国家领导人",
+          "政治人物",
+          "政府标志",
+          "政治符号"
+        ]
+      },
+      "geographic": {
+        "name": "地理敏感元素",
+        "keywords": [
+          "国家地图",
+          "地图",
+          "领土地图",
+          "行政区划图",
+          "边界地图",
+          "争议地区",
+          "台湾地图",
+          "香港地图",
+          "澳门地图",
+          "藏南地区",
+          "南海九段线"
+        ]
+      },
+      "financial": {
+        "name": "金融敏感元素",
+        "keywords": [
+          "人民币图案",
+          "钱币实物",
+          "纸币图案",
+          "硬币图案",
+          "货币防伪标识"
+        ]
+      },
+      "military": {
+        "name": "军事敏感元素",
+        "keywords": [
+          "军事基地",
+          "军事设施",
+          "军事武器细节",
+          "军队编制"
+        ]
+      },
+      "religious": {
+        "name": "宗教敏感元素",
+        "keywords": [
+          "宗教符号",
+          "宗教人物肖像",
+          "宗教极端",
+          "宗教冲突",
+          "邪教标志"
+        ]
+      },
+      "general": {
+        "name": "通用敏感元素",
+        "keywords": [
+          "血腥暴力",
+          "色情内容",
+          "赌博元素",
+          "毒品相关"
+        ]
+      }
+    },
+    "validation_rules": {
+      "check_headline": true,
+      "check_body": true,
+      "check_visual": true,
+      "check_layout": true,
+      "strict_mode": true,
+      "auto_retry": true,
+      "max_retries": 3
+    }
+}

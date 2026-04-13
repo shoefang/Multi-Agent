@@ -1,0 +1,300 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "discover_skills",
+            "description": "发现当前可用的 Skills。当用户请求可能需要特定能力时调用此工具",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skills_dir": {
+                        "type": "string",
+                        "description": "Skills 目录路径"
+                    }
+                },
+                "required": ["skills_dir"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "load_skill",
+            "description": "加载指定 Skill 的完整指令。找到合适的 Skill 后调用此工具获取详细指令",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skill_path": {
+                        "type": "string",
+                        "description": "SKILL.md 文件的路径"
+                    }
+                },
+                "required": ["skill_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_file",
+            "description": "读取任意文件内容",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string", "description": "文件路径"}
+                },
+                "required": ["file_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "write_file",
+            "description": "创建或写入文件",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string", "description": "文件路径"},
+                    "content": {"type": "string", "description": "文件内容"}
+                },
+                "required": ["file_path", "content"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "list_directory",
+            "description": "列出目录内容",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "dir_path": {"type": "string", "description": "目录路径"}
+                },
+                "required": ["dir_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "complete_task",
+            "description": "标记任务完成并退出。必须在所有工作完成后调用此工具来正式结束任务。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "summary": {
+                        "type": "string",
+                        "description": "任务完成摘要，描述完成了什么、生成了哪些文件"
+                    },
+                    "files_created": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "创建的文件路径列表"
+                    }
+                },
+                "required": ["summary"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "list_skill_resources",
+            "description": "查看特定 Skill 下可用的资源插件（如 styles, layouts 等目录下的文件清单）。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skills_dir": {
+                        "type": "string",
+                        "description": "Skills 的根目录路径"
+                    },
+                    "skill_id": {
+                        "type": "string",
+                        "description": "Skill 的文件夹名称，例如 'miaobi_writer'"
+                    }
+                },
+                "required": ["skills_dir", "skill_id"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "load_config",
+            "description": "加载指定的插件配置文件内容（如具体的风格描述或布局模板）。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skills_dir": {
+                        "type": "string",
+                        "description": "Skills 的根目录路径"
+                    },
+                    "skill_id": {
+                        "type": "string",
+                        "description": "Skill 的文件夹名称"
+                    },
+                    "config_type": {
+                        "type": "string",
+                        "description": "配置类型，即子目录名，如 'styles' 或 'layouts'"
+                    },
+                    "config_name": {
+                        "type": "string",
+                        "description": "配置文件的名称（不带后缀），如 'sincere'"
+                    }
+                },
+                "required": ["skills_dir", "skill_id", "config_type", "config_name"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "understanding",
+            "description": "执行输入理解Agent，对用户输入进行深度分析。分析文本意图、内容形态、受众画像等。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "user_input": {
+                        "type": "string",
+                        "description": "用户输入的文本和图像信息"
+                    },
+                    "task_type": {
+                        "type": "string",
+                        "description": "任务类型，如 '通用图文'、'笔记' 等"
+                    },
+                    "save_dir": {
+                        "type": "string",
+                        "description": "结果保存目录"
+                    }
+                },
+                "required": ["user_input", "task_type"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "planning",
+            "description": "执行规划Agent，生成内容大纲和需求。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "用户查询/需求"
+                    },
+                    "understanding": {
+                        "type": "string",
+                        "description": "输入理解结果"
+                    },
+                    "task_type": {
+                        "type": "string",
+                        "description": "任务类型"
+                    },
+                    "save_dir": {
+                        "type": "string",
+                        "description": "结果保存目录"
+                    }
+                },
+                "required": ["query", "understanding", "task_type"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "collect",
+            "description": "执行信息收集Agent，从全网检索相关信息。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "检索查询"
+                    },
+                    "max_rounds": {
+                        "type": "integer",
+                        "description": "最大轮次，默认20"
+                    },
+                    "save_dir": {
+                        "type": "string",
+                        "description": "结果保存目录"
+                    }
+                },
+                "required": ["query"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "generate_figures",
+            "description": "执行配图生成Agent，为内容生成配图。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "understanding": {
+                        "type": "string",
+                        "description": "输入理解结果"
+                    },
+                    "plan": {
+                        "type": "string",
+                        "description": "内容大纲"
+                    },
+                    "task_type": {
+                        "type": "string",
+                        "description": "任务类型"
+                    },
+                    "aspect_ratio": {
+                        "type": "string",
+                        "description": "图像宽高比，如 '16:9'、'9:16' 等"
+                    },
+                    "save_dir": {
+                        "type": "string",
+                        "description": "结果保存目录"
+                    }
+                },
+                "required": ["understanding", "plan", "task_type"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create",
+            "description": "执行创作Agent，生成最终图文内容。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "plan": {
+                        "type": "string",
+                        "description": "内容大纲"
+                    },
+                    "understanding": {
+                        "type": "string",
+                        "description": "用户输入理解结果"
+                    },
+                    "info": {
+                        "type": "string",
+                        "description": "信息检索结果"
+                    },
+                    "figure": {
+                        "type": "string",
+                        "description": "配图搜索/生成结果"
+                    },
+                    "task_type": {
+                        "type": "string",
+                        "description": "任务类型"
+                    },
+                    "save_dir": {
+                        "type": "string",
+                        "description": "结果保存目录"
+                    }
+                },
+                "required": ["plan", "understanding", "task_type"]
+            }
+        }
+    }
+]

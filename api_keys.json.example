@@ -1,0 +1,11 @@
+{
+  "doubao": {
+    "api_key": "YOUR_DOUBAO_API_KEY_HERE"
+  },
+  "qianfan": {
+    "api_key": "YOUR_QIANFAN_API_KEY_HERE"
+  },
+  "nanobanana": {
+    "api_key": "YOUR_NANOBANANA_API_KEY_HERE"
+  }
+}

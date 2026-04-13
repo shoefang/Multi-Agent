@@ -1,0 +1,6 @@
+{
+    "task_type":"笔记",
+    "query": "2026上映电影推荐",
+    "requirements": "生成5部2026新上映的电影推荐",
+    "images": ["http://miaobi-pro-video-news.bj.bcebos.com/dee3095f570aeec3897f3ee809eca854.jpg?authorization=bce-auth-v1%2FALTAKmda7zOvhZVbRzBLewvCMU%2F2026-03-31T06%3A37%3A51Z%2F-1%2F%2Ffe92ac944fee222baccc24121dfb23cb5ab095de4702592336fb87f8f9ac9ae9", "http://miaobi-pro-video-news.bj.bcebos.com/bb9166e98baea9e3cceeffc44a2544e3.jpg?authorization=bce-auth-v1%2FALTAKmda7zOvhZVbRzBLewvCMU%2F2026-03-31T06%3A37%3A52Z%2F-1%2F%2F85601fd48b0cf27aa82142b15689fb4e415b1ad9633f6f9f8b7dc78f976cb281", "http://miaobi-pro-video-news.bj.bcebos.com/6e61522654371f40ca186aa456c02353.jpg?authorization=bce-auth-v1%2FALTAKmda7zOvhZVbRzBLewvCMU%2F2026-03-31T06%3A37%3A53Z%2F-1%2F%2F1416923515ca4124b57987d7e220cc5c3c0c9a6413ea19d2a2ff1a54400922b0", "http://miaobi-pro-video-news.bj.bcebos.com/e1b371d24437deb2c8065ed4bc1c9d45.jpg?authorization=bce-auth-v1%2FALTAKmda7zOvhZVbRzBLewvCMU%2F2026-03-31T06%3A37%3A57Z%2F-1%2F%2Fd910c8709e51550598bda3638a9cb165f6f72956b7a5750039cf5be626d6050a", "http://miaobi-pro-video-news.bj.bcebos.com/4f2a1237ff4c7c8a100ed63a0a066238.jpg?authorization=bce-auth-v1%2FALTAKmda7zOvhZVbRzBLewvCMU%2F2026-03-31T06%3A37%3A58Z%2F-1%2F%2F371fd1d2d8d60edd74d89b81944524d456d390f76f0e98d17c65ddda38100984"]
+}

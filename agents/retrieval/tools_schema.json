@@ -1,0 +1,147 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "read_file",
+            "description": "读取任意文件内容",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string", "description": "文件路径"}
+                },
+                "required": ["file_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "write_file",
+            "description": "创建或写入文件",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string", "description": "文件路径"},
+                    "content": {"type": "string", "description": "文件内容"}
+                },
+                "required": ["file_path", "content"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "list_directory",
+            "description": "列出目录内容",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "dir_path": {"type": "string", "description": "目录路径"}
+                },
+                "required": ["dir_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "discover_skills",
+            "description": "发现当前可用的 Skills",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skills_dir": {
+                        "type": "string",
+                        "description": "Skills 目录路径"
+                    }
+                },
+                "required": ["skills_dir"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "load_skill",
+            "description": "加载指定 Skill 的完整指令",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skill_path": {
+                        "type": "string",
+                        "description": "SKILL.md 文件的路径"
+                    }
+                },
+                "required": ["skill_path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_docs",
+            "description": "从全网搜索信息。display来源为权威媒体/专业网站，undisplay来源为小红书/抖音/微信公众号等UGC内容。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "搜索词"},
+                    "display": {"type": "integer", "description": "来源为display的检索内容数量，建议3-5篇"},
+                    "undisplay": {"type": "integer", "description": "来源为undisplay的检索内容数量，建议3-5篇"},
+                    "site": {"type": "string", "description": "指定网站的域名（可选），如www.xiaohongshu.com"}
+                },
+                "required": ["query"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "run_sub_skill",
+            "description": "运行一个 Phase 级子 Agent。子 Agent 在完全隔离的上下文中执行，完成后返回结构化 JSON 结果。可用的 skill_name: '01_复杂度评估'、'02_动态检索与增益评估'、'03_报告生成'。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "skill_name": {
+                        "type": "string",
+                        "description": "子 Skill 目录名，如 '01_复杂度评估'、'02_动态检索与增益评估'、'03_报告生成'"
+                    },
+                    "context_json": {
+                        "type": "string",
+                        "description": "传入子 Agent 的上下文，必须是 JSON 字符串"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "主任务 query，用于日志归档，必须与主任务保持一致"
+                    },
+                    "max_steps": {
+                        "type": "integer",
+                        "description": "子 Agent 最大执行步数，默认 50"
+                    }
+                },
+                "required": ["skill_name", "context_json", "query"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "complete_task",
+            "description": "标记任务完成并退出。必须在所有工作完成后调用此工具来正式结束任务。",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "summary": {
+                        "type": "string",
+                        "description": "任务完成摘要，描述完成了什么、生成了哪些文件"
+                    },
+                    "files_created": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "创建的文件路径列表"
+                    }
+                },
+                "required": ["summary"]
+            }
+        }
+    }
+]

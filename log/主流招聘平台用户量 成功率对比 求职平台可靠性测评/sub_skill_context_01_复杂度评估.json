@@ -1,0 +1,45 @@
+{
+  "query": "主流招聘平台用户量 成功率对比 求职平台可靠性测评",
+  "skill_name": "01_复杂度评估",
+  "status": "completed",
+  "updated_at": "2026-03-27 16:20:09",
+  "total_steps": 1,
+  "step_logs": [
+    {
+      "step": 1,
+      "tool": "complete_task",
+      "args_preview": "{\"summary\": \"{\\\"complexity_level\\\": 4, \\\"dimensions\\\": [\\\"用户规模与活跃度\\\", \\\"求职成功率指标\\\", \\\"平台可靠性评估\\\", \\\"用户体验与口碑\\\", \\\"功能与服务对比\\\", \\\"行业地位与市场份额\\\"], \\\"estimated_rounds\\\": 5, \\\"max_rounds\\\": 9, \\\"reasoning\\\": \\\"这是一个涉及多个主流招聘平台的多维度系统性对比研究，需要收集用户量数据、成功率统计和可靠性测评等多方面信息。\\\"}\", \"files_created\": []}",
+      "result_preview": "__TASK_COMPLETE__{\"status\": \"completed\", \"summary\": \"{\\\"complexity_level\\\": 4, \\\"dimensions\\\": [\\\"用户规模与活跃度\\\", \\\"求职成功率指标\\\", \\\"平台可靠性评估\\\", \\\"用户体验与口碑\\\", \\\"功能与服务对比\\\", \\\"行业地位与市场份额\\\"], \\\"estimated_rounds\\\": 5, \\\"max_rounds\\\": 9, \\\"reasoning\\\": \\\"这是一个涉及多个主流招聘平台的多维度系统性对比研究，需要收集用户量数据、成功率统计和可靠性测评等多方面信息。\\\"}\", \"files_created\": []}",
+      "timestamp": "2026-03-27 16:20:09"
+    }
+  ],
+  "messages": [
+    {
+      "role": "system",
+      "content": "---\nname: 01_复杂度评估\ndescription: 评估 query 的复杂度，输出 complexity_level、dimensions 和 max_rounds。\n---\n\n# Phase 1: 复杂度评估\n\n你的职责是分析用户 query 的复杂度，并以 `complete_task` 返回结构化结果。\n\n---\n\n## 输入格式\n\n你会收到如下 JSON 字符串：\n```json\n{\"query\": \"用户原始 query\"}\n```\n\n---\n\n## 评估标准\n\n按以下四个维度打分（每维 1/3/5 分），综合判断 complexity_level（1-5）：\n\n1. 信息密度：单一事实(1) / 多维对比(3) / 系统性研究(5)\n2. 时间跨度：即时查询(1) / 趋势分析(3) / 历史演变(5)\n3. 主体数量：单一对象(1) / 对比2-3个(3) / 多元盘点4+(5)\n4. 知识深度：表层事实(1) / 机制分析(3) / 深层原理(5)\n\n复杂度分级参考：\n- 1级：简单事实查询（如\"飞利浦官网\"）→ estimated_rounds=1, max_rounds_suggestion=3\n- 2级：单维对比/概览（如\"飞科和飞利浦哪个好\"）→ estimated_rounds=2, max_rounds_suggestion=4\n- 3级：多维对比/浅层分析 → estimated_rounds=3, max_rounds_suggestion=5\n- 4级：系统性研究（如\"电动剃须刀行业发展趋势\"）→ estimated_rounds=5, max_rounds_suggestion=7\n- 5级：深度多维研究 → estimated_rounds=7, max_rounds_suggestion=10\n\n---\n\n## 执行步骤\n\n### Step 1: 直接分析 query，得出评估结果\n\n根据上述标准推理，确定：\n- `complexity_level`：1-5 的整数\n- `dimensions`：核心分析维度列表（2-6 个，如\"价格\"、\"性能\"、\"用户体验\"等）\n- `estimated_rounds`：预估检索轮次\n- `max_rounds_suggestion`：建议最大轮次\n- `reasoning`：一句话判断理由\n\n计算 `max_rounds = max_rounds_suggestion + 2`，并限制在 2-12 的整数范围内\n\n### Step 2: 调用 complete_task\n\n将评估结果以 JSON 字符串形式放入 summary 字段：\n\n```\ncomplete_task(\n  summary = \"{\\\"complexity_level\\\": <int>, \\\"dimensions\\\": [...], \\\"estimated_rounds\\\": <int>, \\\"max_rounds\\\": <int>, \\\"reasoning\\\": \\\"...\\\"}\",\n  files_created = []\n)\n```\n\n---\n\n## 约束\n\n- 不得调用除 `complete_task` 以外的任何工具\n- 必须通过 `complete_task` 正式退出\n- `summary` 字段必须是合法 JSON 字符串，以便上层 Agent 解析\n- `summary.max_rounds` 必须存在且为 2-12 的整数\n"
+    },
+    {
+      "role": "user",
+      "content": "{\"query\": \"主流招聘平台用户量 成功率对比 求职平台可靠性测评\"}"
+    },
+    {
+      "role": "assistant",
+      "content": "我来分析这个查询的复杂度并给出评估结果。\n\n## 复杂度分析\n\n**查询内容**：\"主流招聘平台用户量 成功率对比 求职平台可靠性测评\"\n\n### 四个维度评估：\n\n1. **信息密度**：需要系统性研究多个主流招聘平台的用户量、成功率对比和可靠性测评 → **5分**\n2. **时间跨度**：需要当前数据和趋势分析，可能涉及历史演变 → **4分**（介于趋势分析和历史演变之间）\n3. **主体数量**：需要对比多个主流招聘平台（如BOSS直聘、智联招聘、前程无忧、猎聘等）→ **5分**\n4. **知识深度**：需要表层事实（用户量）、对比分析（成功率）、测评评估（可靠性）→ **5分**\n\n### 综合判断：\n这是一个多维度的系统性对比研究，涉及多个主流招聘平台的用户量数据、成功率统计和可靠性测评。需要收集权威数据、用户反馈、行业报告等多方面信息。\n\n**复杂度等级**：4级（系统性研究）\n\n**核心分析维度**：\n1. 用户规模与活跃度\n2. 求职成功率指标\n3. 平台可靠性评估\n4. 用户体验与口碑\n5. 功能与服务对比\n6. 行业地位与市场份额\n\n**预估轮次**：5轮（需要多轮检索获取全面数据）\n**建议最大轮次**：7轮\n**计算最大轮次**：7 + 2 = 9轮（在2-12范围内）\n\n**判断理由**：这是一个涉及多个主流招聘平台的多维度系统性对比研究，需要收集用户量数据、成功率统计和可靠性测评等多方面信息。\n\n",
+      "tool_calls": [
+        {
+          "id": "77e3b6f2ac92448baa7a501444033435",
+          "type": "function",
+          "function": {
+            "name": "complete_task",
+            "arguments": "{\"summary\": \"{\\\"complexity_level\\\": 4, \\\"dimensions\\\": [\\\"用户规模与活跃度\\\", \\\"求职成功率指标\\\", \\\"平台可靠性评估\\\", \\\"用户体验与口碑\\\", \\\"功能与服务对比\\\", \\\"行业地位与市场份额\\\"], \\\"estimated_rounds\\\": 5, \\\"max_rounds\\\": 9, \\\"reasoning\\\": \\\"这是一个涉及多个主流招聘平台的多维度系统性对比研究，需要收集用户量数据、成功率统计和可靠性测评等多方面信息。\\\"}\", \"files_created\": []}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "77e3b6f2ac92448baa7a501444033435",
+      "content": "__TASK_COMPLETE__{\"status\": \"completed\", \"summary\": \"{\\\"complexity_level\\\": 4, \\\"dimensions\\\": [\\\"用户规模与活跃度\\\", \\\"求职成功率指标\\\", \\\"平台可靠性评估\\\", \\\"用户体验与口碑\\\", \\\"功能与服务对比\\\", \\\"行业地位与市场份额\\\"], \\\"estimated_rounds\\\": 5, \\\"max_rounds\\\": 9, \\\"reasoning\\\": \\\"这是一个涉及多个主流招聘平台的多维度系统性对比研究，需要收集用户量数据、成功率统计和可靠性测评等多方面信息。\\\"}\", \"files_created\": []}"
+    }
+  ]
+}
